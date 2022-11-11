@@ -41,6 +41,13 @@ public class String_Cases
 	//end of main method
 }
 	//end of class String_Cases
+
+/*
+Output-
+String Case : HeLlo
+Converted String Case : hElLO
+
+*/
 	
 
 		
