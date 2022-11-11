@@ -54,3 +54,11 @@ public class Array_Customize_exce {
 			//end  main method
 	}
 //End of  a class Array_Customize_exce
+
+/*
+Output-
+assignment5.ZeroNumberError: Invalid input
+	at All_Lab_Assignment/assignment5.Array_Customize_exce.checkNumberError(Array_Customize_exce.java:31)
+	at All_Lab_Assignment/assignment5.Array_Customize_exce.main(Array_Customize_exce.java:46)
+
+*/
