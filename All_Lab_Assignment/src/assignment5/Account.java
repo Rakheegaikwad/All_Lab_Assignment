@@ -111,7 +111,20 @@ System.out.println("Accoount Id :- "+obj3.getAcc_Id()+ "  Account Holder Name :-
 //end of class Account
   
 
-		
+/*
+Output -
+
+*************Banking Application************
+withdraw Amount 5000
+Available balance:30000
+withdraw Amount 5000
+Available balance:43500
+withdraw Amount 5000
+Available balance:33000
+Accoount Id :- 10001  Account Holder Name :- Rakhee Gaikwad	Account Balance :-30000
+Accoount Id :- 10012  Account Holder Name :- Rajshree Gaikwad	Account Balance :-43500
+Accoount Id :- 10026  Account Holder Name :- Pratiksha Kamble	Account Balance :-33000
+*/
 	
 
 
