@@ -39,7 +39,7 @@ public class Thread_Average_Sqaure implements Runnable
 		obj1.run();     //calling run method
 		
 		int[] arr={10,15,20,25,30}; //array elements
-		int square=0;				//initialize square as 0
+		int square=1;				//initialize square as 0
 		
 		//using for loop
 		for (int i=0;i< arr.length;i++) 
