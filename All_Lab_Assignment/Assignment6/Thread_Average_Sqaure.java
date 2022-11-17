@@ -22,7 +22,7 @@ public class Thread_Average_Sqaure implements Runnable
 		int sum=0;	//initialize sum as 0
 		
 		// using for loop
-		for(int i=0;i<50;i++)
+		for(int i=0;i<=50;i++)
 		{
 			sum +=i;
 		}
@@ -45,7 +45,7 @@ public class Thread_Average_Sqaure implements Runnable
 		for (int i=0;i< arr.length;i++) 
 		{
 		
-			square=arr[i]*arr[i];
+			arr[i] = (int)Math.pow(arr[i], 2);
 			
 		}
 		for (int value : arr) 
@@ -61,7 +61,7 @@ public class Thread_Average_Sqaure implements Runnable
 
 /*
  * output=
- Average of 50 Numbers 24
+ Average of 50 Numbers 25
 Main thread is running main100
 Main thread is running main225
 Main thread is running main400
