@@ -44,7 +44,9 @@ public class Thread_Average_Sqaure implements Runnable
 		//using for loop
 		for (int i=0;i< arr.length;i++) 
 		{
-			arr[i] = (int)Math.pow(arr[i], 2);
+		
+			square=arr[i]*arr[i];
+			
 		}
 		for (int value : arr) 
 		{
