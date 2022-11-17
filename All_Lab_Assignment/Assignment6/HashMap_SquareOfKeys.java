@@ -40,8 +40,8 @@ public class HashMap_SquareOfKeys
 		
 		
 		//using for  loop
-				for(Integer Value:data.keySet())
-				System.out.println("Key  "+Value+" Sqaure value  "+data.get(Value)); 	//printing key and square value
+				for(Integer K:data.keySet())
+				System.out.println("Key  :"+K+" Sqaure value  :"+data.get(K)); 	//printing key and square value
 				
 				
 	}
@@ -52,21 +52,21 @@ public class HashMap_SquareOfKeys
 
 /*
  * output=
- Key  1 Sqaure value  1
-Key  2 Sqaure value  4
-Key  3 Sqaure value  9
-Key  4 Sqaure value  16
-Key  5 Sqaure value  25
-Key  6 Sqaure value  36
-Key  7 Sqaure value  42
-Key  8 Sqaure value  64
-Key  9 Sqaure value  81
-Key  10 Sqaure value  110
-Key  11 Sqaure value  121
-Key  12 Sqaure value  144
-Key  13 Sqaure value  169
-Key  14 Sqaure value  196
-Key  15 Sqaure value  225
+ Key is  1 , Sqaure value is 1
+Key is  2 , Sqaure value is 4
+Key is  3 , Sqaure value is 9
+Key is  4 , Sqaure value is 16
+Key is  5 , Sqaure value is 25
+Key is  6 , Sqaure value is 36
+Key is  7 , Sqaure value is 42
+Key is  8 , Sqaure value is 64
+Key is  9 , Sqaure value is 81
+Key is  10 , Sqaure value is 110
+Key is  11 , Sqaure value is 121
+Key is  12 , Sqaure value is 144
+Key is  13 , Sqaure value is 169
+Key is  14 , Sqaure value is 196
+Key is  15 , Sqaure value is 225
 
  */
 
