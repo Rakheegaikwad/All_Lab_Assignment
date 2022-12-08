@@ -1,0 +1,373 @@
+/*Lab Assignment 9
+  @authorname :- Rakhee Gaikwad 
+  @Date :-8 december 2022
+  
+Question 1
+1.	create a table named tblParents in Student schema, the Create table definition will be as following(minimum 20 entry is required )
+•	parent id
+•	parents name
+•	city
+•	age
+•	annual income
+•	occupation
+•	emailid
+2.	update email id of each parents as “NA”.
+3.	count number of parents whose annual income is more than 6 lakhs.
+4.	Select parents who are living in city Ahmedabad, Delhi, Mumbai, Chennai, Banglore.
+5.	Write a SQL statement to select parent whose annual income is less than 5 lakhs other
+otherwise age is more than 45.
+*/
+  
+
+
+mysql> create database Student;
+Query OK, 1 row affected (0.17 sec)
+
+mysql> use student;
+Database changed
+mysql> create table tblParents(Parent_Id int primary key,Parent_Name varchar(25),P_City varchar(20),P_Age int,P_AnnualIncome int,P_Occupation varchar(25),P_Email_Id varchar(30));
+Query OK, 0 rows affected (0.45 sec)
+
+mysql> insert into tblParents values(101,"Archana Jadhav","Ahmdabad",41,500000,"Doctor","Archana20@gmail.com");
+Query OK, 1 row affected (0.17 sec)
+
+mysql>  insert into tblParents values(102,"Aditi Gaikwad","pune",39,600000,"Software Engineer","Aditi12@gmail.com");
+Query OK, 1 row affected (0.16 sec)
+
+mysql>  insert into tblParents values(103,"Meena Gaikwad","Banglore",45,1000000,"IncomeTax Officer","GaikwadMeena@gmail.com");
+Query OK, 1 row affected (0.76 sec)
+
+mysql>  insert into tblParents values(105,"Maya Alhat","Ambdabad",37,400000,"Teacher","Maya@gmail.com");
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into tblParents values(104,"Khushbu Thakur","vadodra",35,800000,"Java Trainer","Khshboothakur@gmail.com");
+Query OK, 1 row affected (0.14 sec)
+
+mysql>  insert into tblParents values(106,"Akshay Shelar","Delhi",30,400000,"Supervisor","Akshay12@gmail.com");
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into tblParents values(107,"Sagar Gaganwane","mumbai",28,450000,"Import officer","GaganwaneS@gmail.com");
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into tblParents values(108,"Pratik Kamble","Chennai",27,500000,"Accountant","PratikshK@gmail.com");
+Query OK, 1 row affected (0.60 sec)
+
+mysql> insert into tblParents values(109,"Ajinkya Banekar","pune",29,700000,"Engineer","AjinkyaBanekar@gmail.com");
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into tblParents values(110,"Krushna Talwar","mumbai",30,400000,"Supervisor","krushna@gmail.com");
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into tblParents values(111,"Meena Jadhav","Banglore",29,500000," Officer","Meena@gmail.com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into tblParents values(112,"Satish More","Mumbai",31,300000,"Associate","Satish@gmail.com");
+Query OK, 1 row affected (0.43 sec)
+
+mysql> insert into tblParents values(113,"Pratiksha Kamble","Delhi",30,700000,"Business","kambleP@gmail.com");
+Query OK, 1 row affected (0.13 sec)
+
+mysql>  insert into tblParents values(114,"Rohit Gaikwad","Mumbai",34,300000,"Supervisor","RohitG@gmail.com");
+Query OK, 1 row affected (0.14 sec)
+
+mysql>  insert into tblParents values(115,"Swapnali raut","pune",28,400000,"Associate","SwanaliRaut@gmail.com");
+Query OK, 1 row affected (0.19 sec)
+
+mysql> insert into tblParents values(116,"Aboli Vanjari","chennai",30,300000,"Supervisor","Aboliv@gmail.com");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into tblParents values(117,"Manish nagmal","pune",28,550000,"Manager","ManishNagmal@gmail.com");
+Query OK, 1 row affected (0.07 sec)
+
+mysql>  insert into tblParents values(118,"Minal Alhat","Mumbai",28,350000,"Associate","minalAlhat@gmail.com");
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into tblParents values(119,"prachi surwase","Ahmdabad",27,300000,"telecaller","Prachisurwase@gmail.com");
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into tblParents values(120,"suraj Gaikwad","Satara",26,400000,"Supervisor","Suraj@gmail.com");
+Query OK, 1 row affected (0.20 sec)
+
+mysql> select *from tblParents;
++-----------+------------------+----------+-------+----------------+-------------------+--------------------------+
+| Parent_Id | Parent_Name      | P_City   | P_Age | P_AnnualIncome | P_Occupation      | P_Email_Id               |
++-----------+------------------+----------+-------+----------------+-------------------+--------------------------+
+|       101 | Archana Jadhav   | Ahmdabad |    41 |         500000 | Doctor            | Archana20@gmail.com      |
+|       102 | Aditi Gaikwad    | pune     |    39 |         600000 | Software Engineer | Aditi12@gmail.com        |
+|       103 | Meena Gaikwad    | Banglore |    45 |        1000000 | IncomeTax Officer | GaikwadMeena@gmail.com   |
+|       104 | Khushbu Thakur   | vadodra  |    35 |         800000 | Java Trainer      | Khshboothakur@gmail.com  |
+|       105 | Maya Alhat       | Ambdabad |    37 |         400000 | Teacher           | Maya@gmail.com           |
+|       106 | Akshay Shelar    | Delhi    |    30 |         400000 | Supervisor        | Akshay12@gmail.com       |
+|       107 | Sagar Gaganwane  | mumbai   |    28 |         450000 | Import officer    | GaganwaneS@gmail.com     |
+|       108 | Pratik Kamble    | Chennai  |    27 |         500000 | Accountant        | PratikshK@gmail.com      |
+|       109 | Ajinkya Banekar  | pune     |    29 |         700000 | Engineer          | AjinkyaBanekar@gmail.com |
+|       110 | Krushna Talwar   | mumbai   |    30 |         400000 | Supervisor        | krushna@gmail.com        |
+|       111 | Meena Jadhav     | Banglore |    29 |         500000 |  Officer          | Meena@gmail.com          |
+|       112 | Satish More      | Mumbai   |    31 |         300000 | Associate         | Satish@gmail.com         |
+|       113 | Pratiksha Kamble | Delhi    |    30 |         700000 | Business          | kambleP@gmail.com        |
+|       114 | Rohit Gaikwad    | Mumbai   |    34 |         300000 | Supervisor        | RohitG@gmail.com         |
+|       115 | Swapnali raut    | pune     |    28 |         400000 | Associate         | SwanaliRaut@gmail.com    |
+|       116 | Aboli Vanjari    | chennai  |    30 |         300000 | Supervisor        | Aboliv@gmail.com         |
+|       117 | Manish nagmal    | pune     |    28 |         550000 | Manager           | ManishNagmal@gmail.com   |
+|       118 | Minal Alhat      | Mumbai   |    28 |         350000 | Associate         | minalAlhat@gmail.com     |
+|       119 | prachi surwase   | Ahmdabad |    27 |         300000 | telecaller        | Prachisurwase@gmail.com  |
+|       120 | suraj Gaikwad    | Satara   |    26 |         400000 | Supervisor        | Suraj@gmail.com          |
++-----------+------------------+----------+-------+----------------+-------------------+--------------------------+
+20 rows in set (0.00 sec)
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=101;
+Query OK, 1 row affected (1.63 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=102;
+Query OK, 1 row affected (0.33 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=103;
+Query OK, 1 row affected (1.49 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=104;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=105;
+Query OK, 1 row affected (0.77 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=106;
+Query OK, 1 row affected (0.55 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=107;
+Query OK, 1 row affected (1.49 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=108;
+Query OK, 1 row affected (0.66 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=109;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=110;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=111;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=112;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=113;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=114;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=115;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=116;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=117;
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=118;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=119;
+Query OK, 1 row affected (0.13 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>  UPDATE tblParents SET P_Email_Id='NA'  WHERE Parent_Id=120;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from tblParents;
++-----------+------------------+----------+-------+----------------+-------------------+------------+
+| Parent_Id | Parent_Name      | P_City   | P_Age | P_AnnualIncome | P_Occupation      | P_Email_Id |
++-----------+------------------+----------+-------+----------------+-------------------+------------+
+|       101 | Archana Jadhav   | Ahmdabad |    41 |         500000 | Doctor            | NA         |
+|       102 | Aditi Gaikwad    | pune     |    39 |         600000 | Software Engineer | NA         |
+|       103 | Meena Gaikwad    | Banglore |    45 |        1000000 | IncomeTax Officer | NA         |
+|       104 | Khushbu Thakur   | vadodra  |    35 |         800000 | Java Trainer      | NA         |
+|       105 | Maya Alhat       | Ambdabad |    37 |         400000 | Teacher           | NA         |
+|       106 | Akshay Shelar    | Delhi    |    30 |         400000 | Supervisor        | NA         |
+|       107 | Sagar Gaganwane  | mumbai   |    28 |         450000 | Import officer    | NA         |
+|       108 | Pratik Kamble    | Chennai  |    27 |         500000 | Accountant        | NA         |
+|       109 | Ajinkya Banekar  | pune     |    29 |         700000 | Engineer          | NA         |
+|       110 | Krushna Talwar   | mumbai   |    30 |         400000 | Supervisor        | NA         |
+|       111 | Meena Jadhav     | Banglore |    29 |         500000 |  Officer          | NA         |
+|       112 | Satish More      | Mumbai   |    31 |         300000 | Associate         | NA         |
+|       113 | Pratiksha Kamble | Delhi    |    30 |         700000 | Business          | NA         |
+|       114 | Rohit Gaikwad    | Mumbai   |    34 |         300000 | Supervisor        | NA         |
+|       115 | Swapnali raut    | pune     |    28 |         400000 | Associate         | NA         |
+|       116 | Aboli Vanjari    | chennai  |    30 |         300000 | Supervisor        | NA         |
+|       117 | Manish nagmal    | pune     |    28 |         550000 | Manager           | NA         |
+|       118 | Minal Alhat      | Mumbai   |    28 |         350000 | Associate         | NA         |
+|       119 | prachi surwase   | Ahmdabad |    27 |         300000 | telecaller        | NA         |
+|       120 | suraj Gaikwad    | Satara   |    26 |         400000 | Supervisor        | NA         |
++-----------+------------------+----------+-------+----------------+-------------------+------------+
+20 rows in set (0.00 sec)
+
+mysql> select Count(P_AnnualIncome) from tblParents where P_AnnualIncome>600000;
++-----------------------+
+| Count(P_AnnualIncome) |
++-----------------------+
+|                     4 |
++-----------------------+
+1 row in set (0.00 sec)
+
+mysql>  select * from tblParents Where P_City='Ambdabad' or P_City='Delhi' or P_City='Mumbai' or P_City='Chennai' or P_City='Banglore';
++-----------+------------------+----------+-------+----------------+-------------------+------------+
+| Parent_Id | Parent_Name      | P_City   | P_Age | P_AnnualIncome | P_Occupation      | P_Email_Id |
++-----------+------------------+----------+-------+----------------+-------------------+------------+
+|       103 | Meena Gaikwad    | Banglore |    45 |        1000000 | IncomeTax Officer | NA         |
+|       105 | Maya Alhat       | Ambdabad |    37 |         400000 | Teacher           | NA         |
+|       106 | Akshay Shelar    | Delhi    |    30 |         400000 | Supervisor        | NA         |
+|       107 | Sagar Gaganwane  | mumbai   |    28 |         450000 | Import officer    | NA         |
+|       108 | Pratik Kamble    | Chennai  |    27 |         500000 | Accountant        | NA         |
+|       110 | Krushna Talwar   | mumbai   |    30 |         400000 | Supervisor        | NA         |
+|       111 | Meena Jadhav     | Banglore |    29 |         500000 |  Officer          | NA         |
+|       112 | Satish More      | Mumbai   |    31 |         300000 | Associate         | NA         |
+|       113 | Pratiksha Kamble | Delhi    |    30 |         700000 | Business          | NA         |
+|       114 | Rohit Gaikwad    | Mumbai   |    34 |         300000 | Supervisor        | NA         |
+|       116 | Aboli Vanjari    | chennai  |    30 |         300000 | Supervisor        | NA         |
+|       118 | Minal Alhat      | Mumbai   |    28 |         350000 | Associate         | NA         |
++-----------+------------------+----------+-------+----------------+-------------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> select *from tblParents WHERE P_AnnualIncome<500000 or P_Age>45;
++-----------+-----------------+----------+-------+----------------+----------------+------------+
+| Parent_Id | Parent_Name     | P_City   | P_Age | P_AnnualIncome | P_Occupation   | P_Email_Id |
++-----------+-----------------+----------+-------+----------------+----------------+------------+
+|       105 | Maya Alhat      | Ambdabad |    37 |         400000 | Teacher        | NA         |
+|       106 | Akshay Shelar   | Delhi    |    30 |         400000 | Supervisor     | NA         |
+|       107 | Sagar Gaganwane | mumbai   |    28 |         450000 | Import officer | NA         |
+|       110 | Krushna Talwar  | mumbai   |    30 |         400000 | Supervisor     | NA         |
+|       112 | Satish More     | Mumbai   |    31 |         300000 | Associate      | NA         |
+|       114 | Rohit Gaikwad   | Mumbai   |    34 |         300000 | Supervisor     | NA         |
+|       115 | Swapnali raut   | pune     |    28 |         400000 | Associate      | NA         |
+|       116 | Aboli Vanjari   | chennai  |    30 |         300000 | Supervisor     | NA         |
+|       118 | Minal Alhat     | Mumbai   |    28 |         350000 | Associate      | NA         |
+|       119 | prachi surwase  | Ahmdabad |    27 |         300000 | telecaller     | NA         |
+|       120 | suraj Gaikwad   | Satara   |    26 |         400000 | Supervisor     | NA         |
++-----------+-----------------+----------+-------+----------------+----------------+------------+
+11 rows in set (0.00 sec)
+
+
+Question 2
+
+Create database Company;
+Query OK, 1 row affected (0.20 sec)
+
+mysql> use company;
+Database changed
+mysql> create table Company(C_Id int primary key Auto_increment,C_Name varchar(25),C_City varchar(20));
+Query OK, 0 rows affected (0.63 sec)
+
+mysql> insert into Company values(1,"Dominos","Los Angeles");
+Query OK, 1 row affected (0.72 sec)
+
+mysql> insert into Company values(2,"Pizza Hut","San Francisco");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into Company values(3,"Papa Johns","Fremont");
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into Company values(4 ,"Ah Pizz","San Diego");
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Company values(5,"Nino Pizza","Las Vegas");
+Query OK, 1 row affected (1.31 sec)
+
+mysql> insert into Company values(6,"Pizzaeria","Boston");
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into Company values(7," chuck a cheese","Chicago");
+Query OK, 1 row affected (0.15 sec)
+
+mysql> select *from Company;
++------+-----------------+---------------+
+| C_Id | C_Name          | C_City        |
++------+-----------------+---------------+
+|    1 | Dominos         | Los Angeles   |
+|    2 | Pizza Hut       | San Francisco |
+|    3 | Papa Johns      | Fremont       |
+|    4 | Ah Pizz         | San Diego     |
+|    5 | Nino Pizza      | Las Vegas     |
+|    6 | Pizzaeria       | Boston        |
+|    7 |  chuck a cheese | Chicago       |
++------+-----------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql>  create Table Item(Item_Id int primary key not null,Item_Name varchar(20) ,UnitSold int,C_Id int not null,foreign key(C_Id) references Company(C_Id));
+Query OK, 0 rows affected (0.41 sec)
+
+mysql> insert into Item values(1,"Large Pizza",5,2);
+Query OK, 1 row affected (0.22 sec)
+
+mysql> insert into Item values(2,"Garlic Knots",6,3);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into Item values(3,"Large Pizza",3,3);
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into Item values(4,"Medium Pizza",8,4);
+Query OK, 1 row affected (0.13 sec)
+
+mysql> insert into Item values(5,"BreadSticks",7,1);
+Query OK, 1 row affected (0.16 sec)
+
+mysql> insert into Item values(6,"Medium Pizza",11,1);
+Query OK, 1 row affected (0.38 sec)
+
+mysql> insert into Item values(7,"Small Pizza",9,6);
+Query OK, 1 row affected (0.17 sec)
+
+mysql> insert into Item values(8,"Small Pizza",6,7);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select *from Item;
++---------+--------------+----------+------+
+| Item_Id | Item_Name    | UnitSold | C_Id |
++---------+--------------+----------+------+
+|       1 | Large Pizza  |        5 |    2 |
+|       2 | Garlic Knots |        6 |    3 |
+|       3 | Large Pizza  |        3 |    3 |
+|       4 | Medium Pizza |        8 |    4 |
+|       5 | BreadSticks  |        7 |    1 |
+|       6 | Medium Pizza |       11 |    1 |
+|       7 | Small Pizza  |        9 |    6 |
+|       8 | Small Pizza  |        6 |    7 |
++---------+--------------+----------+------+
+8 rows in set (0.00 sec)
+
+mysql> select * from Company as C Inner join Item  as I on C.C_Id=I.C_Id;
++------+-----------------+---------------+---------+--------------+----------+------+
+| C_Id | C_Name          | C_City        | Item_Id | Item_Name    | UnitSold | C_Id |
++------+-----------------+---------------+---------+--------------+----------+------+
+|    1 | Dominos         | Los Angeles   |       5 | BreadSticks  |        7 |    1 |
+|    1 | Dominos         | Los Angeles   |       6 | Medium Pizza |       11 |    1 |
+|    2 | Pizza Hut       | San Francisco |       1 | Large Pizza  |        5 |    2 |
+|    3 | Papa Johns      | Fremont       |       2 | Garlic Knots |        6 |    3 |
+|    3 | Papa Johns      | Fremont       |       3 | Large Pizza  |        3 |    3 |
+|    4 | Ah Pizz         | San Diego     |       4 | Medium Pizza |        8 |    4 |
+|    6 | Pizzaeria       | Boston        |       7 | Small Pizza  |        9 |    6 |
+|    7 |  chuck a cheese | Chicago       |       8 | Small Pizza  |        6 |    7 |
++------+-----------------+---------------+---------+--------------+----------+------+
+8 rows in set (0.00 sec)
+
+
